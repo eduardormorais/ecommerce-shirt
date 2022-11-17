@@ -1,4 +1,4 @@
-./instance
+instance/*
 Pipfile.lock
 .pytest_cache
 .idea
