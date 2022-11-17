@@ -1,3 +1,6 @@
+import json
+
+
 def test_get_all_users(flask_app):
     resp = flask_app.get("/api/user")
     assert resp.status_code == 200
@@ -6,5 +9,18 @@ def test_get_all_users(flask_app):
 def test_create_user(flask_app, user_faker_dict):
     resp = flask_app.post(
         "/api/user", json=user_faker_dict, headers={"Content-Type": "application/json"}
+    )
+    assert resp.status_code == 200
+    result = json.loads(resp.data)
+    assert result.get("user").get("id")
+
+
+def test_get_one_user(flask_app, user_faker_dict):
+    resp_create_user = flask_app.post(
+        "/api/user", json=user_faker_dict, headers={"Content-Type": "application/json"}
+    )
+    user = json.loads(resp_create_user.data).get("user")
+    resp = flask_app.get(
+        f"/api/user/{user.get('id')}", headers={"Content-Type": "application/json"}
     )
     assert resp.status_code == 200

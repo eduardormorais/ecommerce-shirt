@@ -35,12 +35,12 @@ class RegisterUserUsecase:
     def __register_user(self):
         user = User(**self.__payload)
         self.__repository.insert(user)
+        return user
 
     def execute(self):
         self.__validate()
-        self.__register_user()
-
-        return {"detail": MessageEnum.USER_REGISTRED.value}
+        user = self.__register_user()
+        return {"detail": MessageEnum.USER_REGISTRED.value, "user": user.to_dict()}
 
 
 class UpdateUserUseCase:
