@@ -1,0 +1,9 @@
+[testing]
+    ENV_FOR_DYNACONF = 'testing'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+[production]
+
+[development]
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = false
+    ENV_FOR_DYNACONF='development'
