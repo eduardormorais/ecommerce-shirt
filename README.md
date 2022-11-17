@@ -12,16 +12,25 @@ Study and improvement of microservices techniques with Flask e Clean Architectur
 ## How to work
 
 ### Clone this repository
-$ git clone git@github.com:EduardoRodriguesMorais/ecommerce-shirt.git
+
+`git clone git@github.com:EduardoRodriguesMorais/ecommerce-shirt.git`
 
 ### Access project directory in terminal
-$ cd ecommerce_shirt
+`cd ecommerce_shirt`
+
 
 ### Install all dependencies
-`$ pipenv install`
+`pipenv install`
+
+### Create Database
+`flask create-db`
 
 ### Running application
-`$ flask run`
+`flask run`
+
+### For more commands applications
+`flask --help`
+
 
 ### The application is running in port:5000 - acesse <http://localhost:5000> 
 ## Running tests
