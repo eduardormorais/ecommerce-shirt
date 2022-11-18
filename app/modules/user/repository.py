@@ -1,3 +1,5 @@
+from typing import Any
+
 from app.modules.user.model import User
 from app.config.db import database
 
@@ -14,12 +16,18 @@ class UserRepository:
     def delete(self):
         pass
 
-    def select_all(self):
+    def select_all(self) -> []:
         users = self.__session.query(User).all()
-        list_users = [user.to_dict() for user in users]
-        return list_users
+        return users
 
-    def select_by_id(self, id: int):
+    def find_by_id(self, id: int) -> User | None:
         user = self.__session.query(User).filter(User.id == id).first()
-        user_dict = user.to_dict()
-        return user_dict
+        if user:
+            return user
+        return None
+
+    def find_by_email(self, email: str) -> User | None:
+        user = self.__session.query(User).filter(User.email == email).first()
+        if user:
+            return user
+        return None

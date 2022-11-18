@@ -17,6 +17,10 @@ sqlalchemy-serializer = "*"
 werkzeug = "*"
 pycpfcnpj = "*"
 requests = "*"
+flask-marshmallow = "*"
+marshmallow = "*"
+starlette = "*"
+marshmallow-sqlalchemy = "*"
 
 [dev-packages]
 pytest = "*"

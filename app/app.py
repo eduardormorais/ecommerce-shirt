@@ -1,7 +1,5 @@
-from app.modules.core.exceptions import InvalidData
 from app.config.settings import init_app
 from app.config.db import database
-from flask import jsonify
 
 app = init_app()
 
@@ -18,6 +16,3 @@ def drop_db():
     database.drop_all()
 
 
-@app.errorhandler(InvalidData)
-def invalid_data_user(e):
-    return jsonify(e.to_dict()), e.status_code
